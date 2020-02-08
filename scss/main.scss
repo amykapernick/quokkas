@@ -1,0 +1,11 @@
+@import './variables.scss';
+
+body {
+	color: $neutral;
+	font-family: 'Recursive', Arial, sans-serif;
+	font-size: 16px;
+}
+
+section {
+	min-height: 100vh;
+}

@@ -4,9 +4,18 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "eleventy --serve --port=$PORT",
+    "gulp": " gulp css && gulp watch",
+    "build": "gulp css && eleventy"
   },
   "keywords": [],
   "author": "Amy Kapernick <amy@aimhigherweb.design> (https://amyskapers.dev)",
-  "license": "MIT"
+  "license": "MIT",
+  "devDependencies": {
+    "@11ty/eleventy": "^0.10.0"
+  },
+  "dependencies": {
+    "node-sass": "^4.13.1",
+    "path": "^0.12.7"
+  }
 }
