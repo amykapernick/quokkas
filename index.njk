@@ -1,56 +1,92 @@
 <!DOCTYPE html>
 <html lang="en">
 
-	<head>
-		<meta charset="utf-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<title>Quokkabot</title>
-		<link rel="stylesheet" href="./css/main.css">
-	</head>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Quokkabot</title>
+	<link rel="stylesheet" href="./css/main.css">
+</head>
 
-	<body>
-		<h1>Quokkabot</h1>
+<body>
+	<h1>Quokkabot</h1>
 
-		<section class="section-1">
-			<h2>What is Quokkabot?</h2>
-		</section>
+	<section class="section-1">
+		<h2>What is Quokkabot?</h2>
+		<p>Quokkas are the happiest animal in Australia that surprisingly isn't trying to kill you. But can you really
+			be sure that what you're looking at is a Quokka and not something more dangerous?</p>
+		<p>Utilising Microsoft's Custom Vision and Twilio's WhatsApp and Sendgrid APIs, Quokkabot allows users to send
+			in an iamge and have Quokkabot tell them is the image contains a quokka (or something more dangerous, at
+			which point it may be too late)</p>
+	</section>
 
-		<section class="section-2">
-			<h2>What are Quokkas?</h2>
-		</section>
+	<section class="section-2">
+		<h2>What are Quokkas?</h2>
+		<p>Quokkas are Australian marsupials (related to kangaroos and wallabies), only found on a small island called
+			Rottnest Island, off the coast of Perth. They're herbivors (although will eat most food you leave lying
+			around) and have no natural predators therefore aren't afraid of humans.</p>
+		<p>But what's made quokkas so famous is that they look like they're smiling and are excellent at posing for
+			selfies.</p>
+	</section>
 
-		<section class="section-3">
-			<h2>But why?</h2>
-		</section>
+	<section class="section-3">
+		<h2>But why?</h2>
+		<p>Built for Twilio Engage Sydney 2019, Quokkabot originally showcased the iconic West Australian creature by
+			sending you a picture of a quokka when you asked for them.</p>
+		<p>Since then, it has been expanded to integrate with Microsoft's Custom Vision to allow users to send an image
+			in, and have it detect if the image contains a quokka, via Twilio communication APIs (currently supporting
+			WhatsApp and Sendgrid options).</p>
+		<p>Also, who doesn't love pictures of quokkas?</p>
+	</section>
 
-		<section class="section-4">
-			<h2>How does it work?</h2>
-		</section>
+	<section class="section-4">
+		<h2>How does it work?</h2>
+		<p>There are two version of the Quokkabot workflows, one utilising WhatsApp as the communication method and the
+			other using email.</p>
+		<figure>
+			<img src="./img/sendgrid_workflow.svg" />
+			<figcaption>Flow of information for Quokkabot when using Sendgrid. User sends an email which is passed
+				through Twilio Sendgrid, which triggers a webhook to an Azure function. This function then sends the
+				image to Custom Vision, which sends the result back to Azure functions which uses the Sengrid API to
+				send the results back to the user.</figcaption>
+		</figure>
+		<figure>
+			<img src="./img/whatsapp_workflow.svg" />
+			<figcaption>Flow of information for Quokkabot when using WhatsApp. User sends a WhatsApp message to Twilio
+				registered account, which triggers a webhook to an Azure function. This function then sends the image to
+				Custom Vision, which sends the result back to Azure functions which uses the Twilio WhatsApp API to send
+				the results back to the user.</figcaption>
+		</figure>
 
-		<section class="section-5">
-			<h3>Twilio APIs</h3>
-		</section>
 
-		<section class="section-6">
-			<h3>Azure Functions</h3>
-		</section>
+	</section>
 
-		<section class="section-7">
-			<h3>Azure Cognitive Services Custom Vision</h3>
-		</section>
+	<section class="section-5">
+		<h3>Twilio APIs</h3>
+	</section>
 
-		<section class="section-8">
-			<h3>Twilio Sync</h3>
-		</section>
+	<section class="section-6">
+		<h3>Azure Functions</h3>
+	</section>
 
-		<section class="section-9">
-			<h2>How is it built?</h2>
-		</section>
+	<section class="section-7">
+		<h3>Azure Cognitive Services Custom Vision</h3>
+		<p>Custom vision i spart of Azure Cognitive Services and recognises major differences between images to apply
+			user defined labels.</p>
+	</section>
 
-		<section class="section-10">
-			<h2>How can I use it?</h2>
-		</section>
+	<section class="section-8">
+		<h3>Twilio Sync</h3>
+	</section>
 
-	</body>
+	<section class="section-9">
+		<h2>How is it built?</h2>
+	</section>
+
+	<section class="section-10">
+		<h2>How can I use it?</h2>
+	</section>
+
+</body>
 
 </html>
