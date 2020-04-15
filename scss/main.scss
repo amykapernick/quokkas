@@ -1,11 +1,13 @@
 @import './variables.scss';
 
-body {
-	color: $neutral;
-	font-family: 'Recursive', Arial, sans-serif;
-	font-size: 16px;
+section {
+	min-height: 100vh;
 }
 
-section {
-	// min-height: 100vh;
+img {
+	max-width: 90vw;
 }
+
+@import './typo.scss';
+
+@import './footer.scss';
