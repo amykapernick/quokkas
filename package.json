@@ -5,8 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "eleventy --serve --port=$PORT",
-    "gulp": " gulp css && gulp watch",
-    "build": "gulp css && eleventy"
+    "build": "eleventy"
   },
   "keywords": [],
   "author": "Amy Kapernick <amy@aimhigherweb.design> (https://amyskapers.dev)",
