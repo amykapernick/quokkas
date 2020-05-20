@@ -1,40 +1,21 @@
-<!DOCTYPE html>
-<html lang="en">
+{% set pagetitle = "Quokkabot Results" %}
+{% extends 'partials/layout.njk' %}
 
-<head>
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Quokkabot Results</title>
-	<link rel="stylesheet" href="/css/main.css">
-</head>
-
-<body>
-	<header>
+{% block content %}
+	<main class="results">
 		<h1>Quokkabot Results</h1>
-	</header>
 
-	<section>
 		<h2>Last Quokka Sent</h2>
-		<figure id="lastSent">
+		<figure id="lastsent">
 			<img src="" alt="">
 			<figcaption></figcaption>
 		</figure>
-	</section>
 
-	<section>
 		<h3>Previous Quokka Classifications</h3>
-		<ul class="results">
+		<ul class="results"></ul>
 
-		</ul>
-	</section>
-
-	<footer>
-		<p>Built with <span class="twilio logo">Twilio</span>, <span class="a-func logo">Azure Functions</span> and
-			<span class="custom-vision logo">Custom Vision</span></p>
-		<p>No Quokkas were harmed in the building of this project</p>
-	</footer>
+	</main>
 	<script src="https://media.twiliocdn.com/sdk/js/sync/releases/0.11.4/twilio-sync.min.js"></script>
 	<script src="/js/results.js"></script>
-</body>
 
-</html>
+{% endblock %}

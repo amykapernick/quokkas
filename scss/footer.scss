@@ -1,12 +1,31 @@
 footer {
+	p {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+	}
+
 	.logo {
+		background-repeat: no-repeat;
+		background-size: contain;
+		background-position: center;
+		display: inline-block;
 		font-size: 0;
 		color: transparent;
-		height: 5em;
-		width: 5em;
+		height: 30px;
+		margin: 0 20px;
+		width: 30px;
 	}
 
 	.twilio {
-		background: url('../img/twilio.svg')
+		background-image: url('/img/twilio.svg')
 	}
-}
+
+	.a-func {
+		background-image: url('/img/azure-functions.svg');
+	}
+
+	.custom-vision {
+		background-image: url('/img/custom-vision.svg');
+	}
+} 

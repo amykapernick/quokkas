@@ -1,8 +1,9 @@
 const quokkaResults = ({image, results}) => {
-	const list = document.querySelector('.results'),
+	const list = document.querySelector('ul.results'),
 	quokka = results.quokka > results.negative,
 	caption = quokka ? 'Quokka' : 'Not Quokka',
 	percentage = quokka ? results.quokka : results.negative,
+	quokkaImage = new Image(),
 	html = `<li>
 				<figure>
 					<img src="${image}" alt="">
@@ -10,14 +11,21 @@ const quokkaResults = ({image, results}) => {
 				</figure>
 			</li>`
 
-			list.insertAdjacentHTML('afterbegin', html)
+	quokkaImage.src = image
+
+	quokkaImage.onload = () => {
+		list.insertAdjacentHTML('afterbegin', html)
+
+		if(list.querySelectorAll('li').length > 5) {
+			list.querySelector('li:last-child').remove()
+		}	
+	}	
 }
 
 fetch('https://corn-oyster-5571.twil.io/sync-token')
 .then(response => response.json())
 .then(data => {
-	const client = new Twilio.Sync.Client(data.token),
-	pastResults = document.querySelectorAll('.results figure')
+	const client = new Twilio.Sync.Client(data.token)
 
 	client.document('image').then(doc => {
 		document.querySelector('#lastSent img').src = doc.value.image
@@ -31,9 +39,9 @@ fetch('https://corn-oyster-5571.twil.io/sync-token')
 		list.on('itemAdded', e => {
 			quokkaResults({...e.item.data.value})
 		})
-		return list.getItems()
+		return list.getItems({pageSize: 5, order: 'desc'})
 	}).then(list => {
-		list.items.forEach((img, index) => {
+		list.items.reverse().forEach((img, index) => {
 
 			if(!img.data.value.results) {
 				return
