@@ -28,10 +28,10 @@ fetch('https://corn-oyster-5571.twil.io/sync-token')
 	const client = new Twilio.Sync.Client(data.token)
 
 	client.document('image').then(doc => {
-		document.querySelector('#lastSent img').src = doc.value.image
+		document.querySelector('#last-sent img').src = doc.value.image
 
 		doc.on('updated', e => {
-			document.querySelector('#lastSent img').src = doc.value.image
+			document.querySelector('#last-sent img').src = doc.value.image
 		})
 	})
 

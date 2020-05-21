@@ -2,7 +2,7 @@
 
 main {
 	width: 90vw;
-	max-width: 1000px;
+	max-width: 1200px;
 	margin: 0 auto;
 }
 
@@ -50,6 +50,7 @@ ul.results {
 .results {
 	figure {
 		border: 2px solid $highlight;
+		padding: 0;
 		width: 200px;
 		height: 200px;
 	}
