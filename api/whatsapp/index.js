@@ -70,7 +70,7 @@ module.exports = async function (context, req) {
     
     }
 
-    context.res = {
+    let res = {
         status: 200,
         body: message.toString(),
         headers: {
@@ -78,5 +78,5 @@ module.exports = async function (context, req) {
         }
     }
 
-    context.done()
+    context.done(null, res)
 };
