@@ -72,6 +72,14 @@ module.exports = async function (context, req) {
     }
     
 
-    res.set('content-type', 'text/xml')
-    res.end(message.toString())
+    let response = {
+        status: 200,
+        headers: {
+            "Content-Type": "text/xml"
+        },
+        body: message.toString()
+    }
+    
+
+    context.done(null, response)
 };
