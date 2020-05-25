@@ -1,11 +1,27 @@
 {
-  "name": "api",
+  "name": "quokka_or_not",
   "version": "1.0.0",
-  "description": "",
+  "description": "Is this a quokka or not?",
+  "main": "index.js",
   "scripts": {
     "start": "func start",
     "test": "echo \"No tests yet...\""
   },
-  "dependencies": {},
-  "devDependencies": {}
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/amykapernick/quokka_or_not.git"
+  },
+  "author": "Amy Kapernick",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/amykapernick/quokka_or_not/issues"
+  },
+  "dependencies": {
+    "@azure/cognitiveservices-customvision-prediction": "^4.0.0",
+    "@sendgrid/mail": "^6.5.2",
+    "dotenv": "^8.2.0",
+    "file-system": "^2.2.2",
+    "querystring": "^0.2.0",
+    "twilio": "^3.39.4"
+  }
 }
