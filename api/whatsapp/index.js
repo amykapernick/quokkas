@@ -21,8 +21,7 @@ const whatsappReply = (outcome) => {
 }
 
 module.exports = async function (context, req) {
-    const res = context.res,
-    qs = require('querystring'),
+    const qs = require('querystring'),
     MessagingResponse = require('twilio').twiml.MessagingResponse,
     client = require('twilio')(
         process.env.TWILIO_API_KEY,
@@ -70,8 +69,14 @@ module.exports = async function (context, req) {
         }).catch(console.error)
     
     }
-    
 
-    res.set('content-type', 'text/xml')
-    res.end(message.toString())
+    context.res = {
+        status: 200,
+        body: message.toString(),
+        headers: {
+            'Content-Type': 'text/xml'
+        }
+    }
+
+    context.done()
 };
