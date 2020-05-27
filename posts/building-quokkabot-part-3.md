@@ -61,7 +61,7 @@ Azure Static Web Apps has only been available for a week, is still in preview an
 
 ### Node Modules
 
-During the build process, Azure uses it's own node_modules folder to install things in, `__oryx_prod_node_modules`, which as it wasn't called `node_modules`, my Eleventy site tried to build out the content 🤦‍♀️. This was an easy fix though, by adding that folder to the `[.eleventyignore` file](https://www.11ty.dev/docs/ignores/), the build ignored it.
+During the build process, Azure uses it's own node_modules folder to install things in, `__oryx_prod_node_modules`, which as it wasn't called `node_modules`, my Eleventy site tried to build out the content 🤦‍♀️. This was an easy fix though, by adding that folder to the [`.eleventyignore` file](https://www.11ty.dev/docs/ignores/), the build ignored it.
 
 ### Azure Functions
 
