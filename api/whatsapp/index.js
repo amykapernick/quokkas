@@ -70,14 +70,6 @@ module.exports = async function (context, req) {
     
     }
 
-    // context.res = {
-    //     status: 200,
-    //     body: message.toString(),
-    //     headers: {
-    //         'Content-Type': 'text/xml'
-    //     },
-    //     type: 'text/xml'
-    // }
 
     context.done(null, {
         status: 200,
@@ -86,7 +78,4 @@ module.exports = async function (context, req) {
             'Content-Type': 'text/xml'
         },
     })
-
-    // res.set('content-type', 'text/xml')
-    // res.end(message.toString())
 };

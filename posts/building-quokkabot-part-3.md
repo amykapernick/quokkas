@@ -65,7 +65,11 @@ During the build process, Azure uses it's own node_modules folder to install thi
 
 ### Azure Functions
 
+**Fixed**
+
 While Static Web Apps does use Azure Functions for the API back ends, there's a layer that sits between the two, which currently stops the API sending custom headers with the response (such as `Content-Type`). This has been lodged as an issue though and should be fixed shortly.
+
+**Update 1-June-2020**: This issue has now been fixed, and Azure functions are now passing through custom headers.
 
 ---
 
