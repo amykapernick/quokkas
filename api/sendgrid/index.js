@@ -1,6 +1,7 @@
 require('dotenv').config()
 
-const customVision = require('../quokka-test').customVisionBinary,
+module.exports = async function (context, req) {
+    const customVision = require('../quokka-test').customVisionBinary,
 quokkabot = require('../quokkabot').email
 
 const emailReply = (outcome) => {
@@ -29,7 +30,6 @@ const emailReply = (outcome) => {
         return message
 }
 
-module.exports = async function (context, req) {
     const multipart = require('../parse-multipart/multipart'),
     bodyBuffer = Buffer.from(req.body),
     boundary = multipart.getBoundary(req.headers['content-type']),
