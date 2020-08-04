@@ -1,13 +1,18 @@
 require('dotenv').config()
 
-const PredictionApi = require('@azure/cognitiveservices-customvision-prediction'),
+const { PredictionAPIClient } = require('@azure/cognitiveservices-customvision-prediction'),
+{ApiKeyCredentials} = require('@azure/ms-rest-js'),
 key = process.env.API_KEY,
 endpoint = process.env.ENDPOINT,
 projectId = process.env.PROJECT_ID,
 iteration = process.env.ITERATION,
-predictor = new PredictionApi.PredictionAPIClient(key, endpoint)
+credentials = new ApiKeyCredentials({ inHeader: {"Prediction-key": key } })
+predictor = new PredictionAPIClient(credentials, endpoint)
+
+console.log({key, endpoint})
 
 const customVision = async (image) => {
+	context.log('test 2 1')
 	const results = await predictor.classifyImageUrl(projectId, iteration, {url: image}),
 	outcome = quokkaTest(results)
 

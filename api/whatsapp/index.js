@@ -1,8 +1,11 @@
 require('dotenv').config()
 
 module.exports = async function (context, req) {
+    context.log('test 1')
     const quokkaTest = require('../quokka-test').customVision,
-        quokkaBot = require('../quokkabot').message
+       quokkaBot = require('../quokkabot').message
+
+        context.log('test 2')
 
         const whatsappReply = (outcome) => {
             let message,
@@ -21,6 +24,8 @@ module.exports = async function (context, req) {
             return message
         }
 
+        context.log('test 3')
+
     const qs = require('querystring'),
     MessagingResponse = require('twilio').twiml.MessagingResponse,
     client = require('twilio')(
@@ -35,7 +40,10 @@ module.exports = async function (context, req) {
     image = body.NumMedia && body.MediaUrl0,
     service = client.sync.services(process.env.TWILIO_SYNC_SERVICE_SID)
 
+    context.log('test 4')
+
     if(image) {
+        context.log('test 5')
         const results = await quokkaTest(image),
         reply = whatsappReply(results)
 
@@ -47,6 +55,8 @@ module.exports = async function (context, req) {
                 results: results
             }
         }).catch(console.error)
+
+        context.log('test 6')
     }
     else {
         const results = quokkaBot(text)
@@ -67,9 +77,9 @@ module.exports = async function (context, req) {
                 image: results.media
             }
         }).catch(console.error)
-    
     }
 
+    context.log('test 9')
 
     context.done(null, {
         status: 200,
