@@ -11,7 +11,7 @@ Last year, for a demo at Twilio Superclass in Sydney, I built a bot that sent pi
 
 Now I've never done anything with image recognition, or really any form of AI or machine learning before, so this was a bit confronting. Thankfully, I had people who were able to able to help me out, and so while sitting at the helpdesk at Microsoft Ignite, one of my friends, Damian, helped me to set up and configure [Microsoft's Cognitive Services Custom Vision](https://www.customvision.ai/) (yep that's a mouthful) to run image classification - does the image have a Quokka in it or not?
 
-The previous version of Quokkabot was run on [Twilio Functions](https://www.twilio.com/docs/runtime/functions), a serverless environment that is easy to get up and running with Twilio functions. But due to the added complexity with image recognition, I wanted an option that had a bit more flexibility, so I switched to use [Azure Functions](https://azure.microsoft.com/en-in/services/functions/) instead. It took a little while to get used to the differences between the two, but thankfully Aaron was able to help out (and thankfully show me where I can find the logs). It was also super easy to [get started with Azure Functions](https://docs.microsoft.com/en-us/azure/azure-functions/functions-create-first-function-vs-code?pivots=programming-language-javascript), with a VS Code extension to setup the new function files.
+The previous version of Quokkabot was run on [Twilio Functions](https://www.twilio.com/docs/runtime/functions), a serverless environment that is easy to get up and running with Twilio functions. But due to the added complexity with image recognition, I wanted an option that had a bit more flexibility, so I switched to use [Azure Functions](https://azure.microsoft.com/en-in/services/functions/) instead. It took a little while to get used to the differences between the two, but thankfully Aaron was able to help out (and thankfully show me where I can find the logs). It was also super easy to [get started with Azure Functions](https://docs.microsoft.com/en-us/azure/azure-functions/functions-create-first-function-vs-code?pivots=programming-language-javascript?WT.mc_id=AZ-MVP-5003595), with a VS Code extension to setup the new function files.
 
 Once the function is set up, it was a case of bringing across the WhatsApp code from Quokka on Demand. If you don't already have one, [sign up for a Twilio account](https://www.twilio.com/referral/09ifDK). Using the referral link provided will give you $10 credit when you set up your account.
 
@@ -284,4 +284,4 @@ module.exports = async function (context) {
 ```
 ---
 
-Now that this is working though, this is only the start (more posts incoming). The current state of this project is in [GitHub](https://github.com/amykapernick/quokka_or_not). 
+Now that this is working though, this is only the start (more posts incoming). The current state of this project is in [GitHub](https://github.com/amykapernick/quokkas). 

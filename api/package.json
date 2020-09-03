@@ -9,12 +9,12 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/amykapernick/quokka_or_not.git"
+    "url": "git+https://github.com/amykapernick/quokkas.git"
   },
   "author": "Amy Kapernick",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/amykapernick/quokka_or_not/issues"
+    "url": "https://github.com/amykapernick/quokkas/issues"
   },
   "dependencies": {
     "@azure/cognitiveservices-customvision-prediction": "^5.1.2",

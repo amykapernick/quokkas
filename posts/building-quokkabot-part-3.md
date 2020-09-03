@@ -11,7 +11,7 @@ tags: posts
 layout: layouts/post.njk
 featured: /img/welcome_to_quokkabot.png
 ---
-Last week I got the chance to speak at [Microsoft Build](https://mybuild.microsoft.com/), and do a first-look demo on their newly announced featured - [Azure Static Web Apps](https://azure.microsoft.com/en-au/services/app-service/static/). And as I didn't get access to Static Web Apps until they same time everyone else did (the day before my demo), I got to showcase how easy it was the first time you used it (ok, so maybe it was the second time that I'd used it).
+Last week I got the chance to speak at [Microsoft Build](https://mybuild.microsoft.com/), and do a first-look demo on their newly announced featured - [Azure Static Web Apps](https://docs.microsoft.com/en-us/azure/static-web-apps/overview?WT.mc_id=AZ-MVP-5003595). And as I didn't get access to Static Web Apps until they same time everyone else did (the day before my demo), I got to showcase how easy it was the first time you used it (ok, so maybe it was the second time that I'd used it).
 
 ## Deploying from GitHub
 
@@ -47,7 +47,7 @@ Again, you're done.
 
 ## Adding an API back end
 
-I already had a [separate repository](https://github.com/amykapernick/quokka_or_not) where I was running the Quokkabot back end on Azure Functions, so as Static Web Apps uses Azure Functions for the back end that was also an easy integration.
+I already had a [separate repository](https://github.com/amykapernick/quokkas) where I was running the Quokkabot back end on Azure Functions, so as Static Web Apps uses Azure Functions for the back end that was also an easy integration.
 
 I created a new folder in the static site project called `api` and copied all the files from the API repository over, then deployed the updates.
 
