@@ -13,7 +13,7 @@ Now I've never done anything with image recognition, or really any form of AI or
 
 The previous version of Quokkabot was run on [Twilio Functions](https://www.twilio.com/docs/runtime/functions), a serverless environment that is easy to get up and running with Twilio functions. But due to the added complexity with image recognition, I wanted an option that had a bit more flexibility, so I switched to use [Azure Functions](https://azure.microsoft.com/en-in/services/functions/) instead. It took a little while to get used to the differences between the two, but thankfully Aaron was able to help out (and thankfully show me where I can find the logs). It was also super easy to [get started with Azure Functions](https://docs.microsoft.com/en-us/azure/azure-functions/functions-create-first-function-vs-code?pivots=programming-language-javascript), with a VS Code extension to setup the new function files.
 
-Once the function is set up, it was a case of bringing across the WhatsApp code from Quokka on Demand
+Once the function is set up, it was a case of bringing across the WhatsApp code from Quokka on Demand. If you don't already have one, [sign up for a Twilio account](https://www.twilio.com/referral/09ifDK). Using the referral link provided will give you $10 credit when you set up your account.
 
 ```javascript
 // whatsapp/index.js
