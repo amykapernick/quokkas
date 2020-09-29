@@ -19,10 +19,10 @@
   "dependencies": {
     "@azure/cognitiveservices-customvision-prediction": "^5.1.2",
     "@azure/ms-rest-js": "^2.0.8",
-    "@sendgrid/mail": "^7.2.2",
+    "@sendgrid/mail": "^7.2.6",
     "dotenv": "^8.2.0",
     "file-system": "^2.2.2",
     "querystring": "^0.2.0",
-    "twilio": "^3.48.1"
+    "twilio": "^3.49.4"
   }
 }
