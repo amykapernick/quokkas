@@ -8,9 +8,16 @@
     "build": "eleventy",
     "api": "cd api && npm start"
   },
-  "keywords": [],
-  "author": "Amy Kapernick <amy@aimhigherweb.design> (https://amyskapers.dev)",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/amykapernick/quokkas.git"
+  },
+  "author": "Amy Kapernick <amy@kapers.dev> (https://amyskapers.dev)",
   "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/amykapernick/quokkas/issues"
+  },
+  "homepage": "https://quokkas.amyskapers.dev",
   "devDependencies": {
     "@11ty/eleventy": "^0.11.0"
   },
