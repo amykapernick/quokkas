@@ -8,6 +8,8 @@
 
 We'll be adding a new feature soon, with the bot sending Quokka facts as well. Add your facts to [`resources/data/facts.js`](resources/data/facts.js) via a pull request! 
 
+**Note**: we'll only be accepting one PR from each user, to keep Hacktoberfest fair
+
 
 # To Do
 * [x] Create WhatsApp bot that sends Quokka photos
