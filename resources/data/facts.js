@@ -19,6 +19,7 @@
 	`Yes, Quokkas do smile, but we don't know if they're happy.`
 	`The correct way to pronounce Quokkas according to the Cambridge Dictionary is “kwok-uh`
   `Quokkas climb trees mainly to get food.`,
-	`Quokkas move around by hopping and bounding, or moving forward using their hands.`
+	`Quokkas move around by hopping and bounding, or moving forward using their hands.`,
+	`Quokkas have the ability to swim, but you won't find them doing the butterfly stroke very often.`
 ]
 
