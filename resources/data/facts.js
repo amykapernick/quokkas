@@ -16,9 +16,10 @@
 	`Though they’re known as the happiest animal on earth, their “smiles” are mainly due to the shape of their mouths`,
 	`Quokkas comes from the name given to them by the Aboriginal people living in south-west Western Australia`,
 	`Quokkas are a vulnerable species`
-	`Yes, Quokkas do smile, but we don't know if they're happy.`
-	`The correct way to pronounce Quokkas according to the Cambridge Dictionary is “kwok-uh`
-  `Quokkas climb trees mainly to get food.`,
-	`Quokkas move around by hopping and bounding, or moving forward using their hands.`
+	`Yes, Quokkas do smile, but we don't know if they're happy.`,
+	`The correct way to pronounce Quokkas according to the Cambridge Dictionary is “kwok-uh`,
+  	`Quokkas climb trees mainly to get food.`,
+	`Quokkas move around by hopping and bounding, or moving forward using their hands`,
+	`The word "quokka" is derived from a Nyungar word, which was probably gwaga`
 ]
 
