@@ -20,5 +20,7 @@
 	`The correct way to pronounce Quokkas according to the Cambridge Dictionary is “kwok-uh`
   `Quokkas climb trees mainly to get food.`,
 	`Quokkas move around by hopping and bounding, or moving forward using their hands.`
+	 'Quokkas Occupy Only a Small Portion of Australia.'
+	'Quokkas Eat Their Food Twice.'
 ]
 
