@@ -1,7 +1,7 @@
 [
 	`Quokkas can survive a long time without food and water`,
 	`Quokkas are peceful with each other`,
-	`They look cute, but they're pretty annoying.\nQuokkas are known to wander inter restaurants nad shops and have to be shooed away!`,
+	`They look cute, but they're pretty annoying.\nQuokkas are known to wander inter restaurants and shops and have to be shooed away!`,
 	`Quokkas look teeny tiny in photos, but they’re actually roughly the size of a small cat – especially when they get on their hind legs and have a biiiig streeeetch!`,
 	`Quokkas are such show-stealers, their entire home is named after them - Eylandt Rottenest (Rat’s Nest Island)`,
 	`Quokkas move around by hopping and bounding, or moving forward using their hands`,
