@@ -1,7 +1,7 @@
 [
 	`Quokkas can survive a long time without food and water`,
 	`Quokkas are peceful with each other`,
-	`They look cute, but they're pretty annoying.\nQuokkas are known to wander inter restaurants nad shops and have to be shooed away!`,
+	`They look cute, but they're pretty annoying.\nQuokkas are known to wander inter restaurants and shops and have to be shooed away!`,
 	`Quokkas look teeny tiny in photos, but they’re actually roughly the size of a small cat – especially when they get on their hind legs and have a biiiig streeeetch!`,
 	`Quokkas are such show-stealers, their entire home is named after them - Eylandt Rottenest (Rat’s Nest Island)`,
 	`Quokkas move around by hopping and bounding, or moving forward using their hands`,
@@ -15,11 +15,14 @@
 	`Quokkas have sharp claws and teeth they will use against you if they feel threatened`,
 	`Though they’re known as the happiest animal on earth, their “smiles” are mainly due to the shape of their mouths`,
 	`Quokkas comes from the name given to them by the Aboriginal people living in south-west Western Australia`,
-	`Quokkas are a vulnerable species`
-	`Yes, Quokkas do smile, but we don't know if they're happy.`
-	`The correct way to pronounce Quokkas according to the Cambridge Dictionary is “kwok-uh`
+	`Quokkas are a vulnerable species`,
+	`Yes, Quokkas do smile, but we don't know if they're happy.`,
+	`The correct way to pronounce Quokkas according to the Cambridge Dictionary is “kwok-uh`,
   `Quokkas climb trees mainly to get food.`,
-	`Quokkas move around by hopping and bounding, or moving forward using their hands.`,
-	`Quokkas have the ability to swim, but you won't find them doing the butterfly stroke very often.`
+	`Quokkas have the ability to swim, but you won't find them doing the butterfly stroke very often.`,
+	 'Quokkas Occupy Only a Small Portion of Australia.',
+	'Quokkas Eat Their Food Twice.',
+	`Quokkas move around by hopping and bounding, or moving forward using their hands`,
+	`The word "quokka" is derived from a Nyungar word, which was probably gwaga`
 ]
 
