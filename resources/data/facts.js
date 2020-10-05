@@ -18,11 +18,13 @@
 	`Quokkas are a vulnerable species`,
 	`Yes, Quokkas do smile, but we don't know if they're happy.`,
 	`The correct way to pronounce Quokkas according to the Cambridge Dictionary is “kwok-uh`,
-	`Quokkas climb trees mainly to get food.`,
+ 	`Quokkas climb trees mainly to get food.`,
 	`Quokkas have the ability to swim, but you won't find them doing the butterfly stroke very often.`,
 	'Quokkas Occupy Only a Small Portion of Australia.',
 	'Quokkas Eat Their Food Twice.',
-	`Quokkas move around by hopping and bounding, or moving forward using their hands`,
-	`The word "quokka" is derived from a Nyungar word, which was probably gwaga`
+	`Quokkas move around by hopping and bounding, or moving forward using their hands.`,
+	`The word "quokka" is derived from a Nyungar word, which was probably gwaga.`,
+	`Quokka come from same family as kangaroos, except these little guys only grow to be about the size of a domestic cat.`,
+	`Quokka carry their babies in their pouch just like kangaroos.`,
+	`Adult quokkas when threatened, are known to sometimes sacrifice their babies by throwing out of their pouches to serve as a distraction, allowing them to get enough time to run.`
 ]
-
