@@ -26,5 +26,6 @@
 	`The word "quokka" is derived from a Nyungar word, which was probably gwaga.`,
 	`Quokka come from same family as kangaroos, except these little guys only grow to be about the size of a domestic cat.`,
 	`Quokka carry their babies in their pouch just like kangaroos.`,
-	`Adult quokkas when threatened, are known to sometimes sacrifice their babies by throwing out of their pouches to serve as a distraction, allowing them to get enough time to run.`
+	`Adult quokkas when threatened, are known to sometimes sacrifice their babies by throwing out of their pouches to serve as a distraction, allowing them to get enough time to run.`,
+	`Watching Quokka has been proven to reduce stress among viewers of footage of the little creature`
 ]
