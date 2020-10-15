@@ -29,4 +29,5 @@
 	`Adult quokkas when threatened, are known to sometimes sacrifice their babies by throwing out of their pouches to serve as a distraction, allowing them to get enough time to run.`,
 	`Watching Quokka has been proven to reduce stress among viewers of footage of the little creature`,
 	`Quokkas live in trees, shrubs, swamps and other areas with dense vegetation. They don't like the exposure of wide and open spaces.`
+	`Quokkas are small, four-legged animals covered in fur and belong to the kangaroo family.`
 ]
