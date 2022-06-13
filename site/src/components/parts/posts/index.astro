@@ -1,0 +1,57 @@
+---
+const posts = await Astro.glob('../../../pages/posts/*.md');
+
+---
+
+<style lang="scss">
+	.posts {
+		display: flex;
+		flex-wrap: wrap;
+		list-style: none;
+		justify-content: center;
+		margin: 0;
+		padding: 0;
+
+		li {
+			flex: 1 1 auto;
+			border: 3px solid var.$colours_highlight;
+			margin: 10px;
+			padding: 10px;
+			width: 250px;
+			max-width: 300px;
+		}
+
+		a {
+			display: block;
+			font-size: 1.3em;
+			font-weight: bold;
+			padding: 10px;
+		}
+
+		img {
+			display: block;
+			width: 100%;
+			height: 250px;
+			object-fit: cover;
+		}
+	}
+
+	@media(min-width: 50em) {
+		.posts {
+			li {
+				max-width: 400px;
+			}
+		}
+	}
+</style>
+
+
+<ul class="posts">
+	{posts.map((post) => (
+	<li>
+		<img src={post.frontmatter.featured} />
+		<a href={post.url}>{post.frontmatter.title}</a>
+		<p>{post.frontmatter.description}</p>
+	</li>
+	))}
+</ul>

@@ -1,0 +1,61 @@
+---
+import Header from '@partials/Header/index.astro'
+import Footer from '@partials/Footer/index.astro'
+import DevStyles from '@partials/DevStyles/index.astro'
+import siteData from '@data/site'
+
+import '@styles/global.scss'
+
+const content = {
+	...siteData,
+	...Astro?.props?.content,
+}
+
+const { title, description, url, featured, slug = '/' } = content
+---
+
+<style lang="scss">
+	main {
+		width: 90vw;
+		max-width: 1200px;
+		margin: 0 auto;
+	}
+</style>
+
+<html lang="en">
+
+<head>
+	<meta charset="utf-8" />
+	<meta http-equiv="x-ua-compatible" content="ie=edge" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+	<meta name="theme-color" content="#610023" />
+	<link rel="shortcut icon" href="/img/amy-quokka-transparent.png" />
+
+	<title>{title}</title>
+	<meta name="description" content={description} />
+
+	<meta property="og:title" content={title} />
+	<meta property="og:description" content={description}>
+	<meta property="og:image" content={`${url}/${featured || '/img/rottnest-lighthouse-2500.jpg' }`} />
+	<meta name="author" content="Amy Kapernick" />
+	<meta property="og:url" content={`${url}${slug}`} />
+
+	<meta name="twitter:card" content="summary_large_image" />
+	<meta name="twitter:site" content="@amys_kapers" />
+	<meta name="twitter:creator" content="@amys_kapers" />
+
+	<slot name="head" />
+</head>
+
+<body>
+	{process?.env?.NODE_ENV === 'development' &&
+	<DevStyles />}
+	<Header />
+	<main>
+		<slot />
+	</main>
+	<Footer />
+	<slot name="footer" />
+</body>
+
+</html>

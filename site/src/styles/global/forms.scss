@@ -1,0 +1,13 @@
+input,
+textarea,
+select {
+	display: block;
+	padding: 16px;
+	border: 1px solid var.$colours_primary;
+	font-size: 0.875em;
+
+	&::placeholder {
+		opacity: 1;
+		color: var.$colours_primary;
+	}
+}

@@ -1,0 +1,74 @@
+{
+	"compilerOptions": {
+		// Enable top-level await and other modern ESM features.
+		"target": "ESNext",
+		"module": "ESNext",
+		// Enable node-style module resolution, for things like npm package imports.
+		"moduleResolution": "node",
+		// Enable JSON imports.
+		"resolveJsonModule": true,
+		// Enable stricter transpilation for better output.
+		"isolatedModules": true,
+		// Add type definitions for our Vite runtime.
+		"types": [
+			"vite/client",
+			"node",
+			"react",
+		],
+		"jsx": "react",
+		"allowUnreachableCode": false,
+		"alwaysStrict": true,
+		"allowUnusedLabels": false,
+		"allowSyntheticDefaultImports": true,
+		"noImplicitAny": true,
+		"noImplicitReturns": true,
+		"baseUrl": ".",
+		"plugins": [
+			{
+				"name": "typescript-plugin-css-modules",
+				"options": {
+					"postCssOptions": {
+						"useConfig": true
+					},
+					"customMatcher": "\\.scss$",
+					"rendererOptions": {
+						"sass": {
+							"includePaths": [
+								"./src/styles"
+							]
+						}
+					}
+				}
+			}
+		],
+		"paths": {
+			"@pages/*": [
+				"site/src/pages/*"
+			],
+			"@partials/*": [
+				"site/src/components/partials/*"
+			],
+			"@parts/*": [
+				"site/src/components/parts/*"
+			],
+			"@components/*": [
+				"site/src/components/*"
+			],
+			"@layouts/*": [
+				"site/src/layouts/*"
+			],
+			"@data/*": [
+				"site/_data/*"
+			],
+			"@img/*": [
+				"site/src/img/*"
+			],
+			"@styles/*": [
+				"site/src/styles/*"
+			],
+			"@utils/*": [
+				"site/src/utils/*"
+			]
+		}
+	}
+}

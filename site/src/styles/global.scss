@@ -1,0 +1,40 @@
+/* stylelint-disable no-duplicate-selectors */
+
+@import './global/index.scss';
+
+img {
+	display: block;
+	max-width: 800px;
+	max-height: 500px;
+	margin: 0 auto;
+}
+
+figure {
+	margin: 0 auto;
+	padding: 20px;
+	text-align: center;
+
+	img {
+		max-width: 100%;
+		max-height: 300px;
+	}
+
+	figcaption {
+		margin-top: 20px;
+		padding: 20px;
+		background: var.$colours_highlight;
+	}
+}
+
+::-webkit-scrollbar {
+	width: 5px;
+	background-color: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+	background-color: rgba(var.$colours_primary, 0.2);
+
+	&:hover {
+		background-color: var.$colours_primary;
+	}
+}

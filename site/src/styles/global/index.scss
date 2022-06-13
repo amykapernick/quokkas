@@ -1,0 +1,50 @@
+*,
+*:before,
+*:after {
+	box-sizing: border-box;
+	transition: all 0.2s ease;
+	outline-offset: 0.2em;
+	font-family: inherit;
+	text-decoration-skip-ink: auto;
+}
+
+*:focus {
+	outline: 3px solid var.$colours_highlight;
+}
+
+body,
+html {
+	max-width: 100vw;
+	overflow-x: hidden;
+}
+
+body {
+	position: absolute;
+	top: 0;
+	width: 100vw;
+	margin: 0;
+}
+
+main {
+	display: block;
+}
+
+.sr-only {
+	position: absolute;
+	width: 1px;
+	height: 1px;
+	opacity: 0;
+	pointer-events: none;
+}
+
+@media(prefers-reduced-motion: reduce) {
+	* {
+		transition: none;
+		animation: none;
+	}
+}
+
+@import './fonts.scss';
+@import './typo.scss';
+@import './forms.scss';
+@import './prismjs_dark.scss';

@@ -1,0 +1,14 @@
+---
+import Layout from '@components/partials/Layout/index.astro';
+import siteData from '@data/site'
+
+const content = {
+	...siteData,
+	...Astro?.props?.content,
+	slug: Astro?.canonicalURL?.pathname
+}
+---
+
+<Layout content={content}>
+	<slot />
+</Layout>
