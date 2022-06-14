@@ -8,7 +8,7 @@
 		"build": "astro build --root ./site",
 		"preview": "astro preview --root ./site",
 		"start": "npm run dev",
-		"api": "cd api && npm start"
+		"api": "cd api && npm run dev"
 	},
 	"repository": {
 		"type": "git",

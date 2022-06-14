@@ -5,7 +5,7 @@ const twilio = require('twilio')
 const customVision = require('../quokka-test').customVisionBinary
 const multipart = require('../parse-multipart/multipart')
 const { email: quokkaBot } = require('../quokkabot')
-const { quokkas, randomImage } = require('./_data/photos')
+const { quokkas, randomImage } = require('../_data/photos')
 
 const emailReply = (outcome) => {
     const quokka = `${(outcome.quokka * 100).toFixed(2)}%`

@@ -4,9 +4,7 @@ const twilio = require('twilio')
 const quokkaTest = require('../quokka-test')
 const customVision = quokkaTest.customVision
 const { message: quokkaBot } = require('../quokkabot')
-const { quokkas, randomImage } = require('./_data/photos')
-
-
+const { quokkas, randomImage } = require('../_data/photos')
 
 const whatsappReply = (outcome) => {
     const photo = randomImage(quokkas)
