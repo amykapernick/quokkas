@@ -1,11 +1,5 @@
-const { quokkas, notQuokkas } = require('./_data/photos')
-
-const randomImage = (array) => {
-	const length = array.length
-	const number = Math.floor((Math.random() * length))
-
-	return array[number]
-}
+const { quokkas, randomImage } = require('./_data/photos')
+const { facts, randomFacts } = require('./_data/facts')
 
 const message = (text) => {
 	const image = randomImage(quokkas)
@@ -17,6 +11,13 @@ const message = (text) => {
 
 		if (image?.message) {
 			results.body = `${results.body} (${image.message})`
+		}
+	}
+	else if (RegExp('fact', 'i').test(text)) {
+		results.body = randomFacts(facts)
+
+		if (image?.message) {
+			results.body = `${results.body}\n(${image.message})`
 		}
 	}
 	else if (RegExp('quokka', 'i').test(text)) {

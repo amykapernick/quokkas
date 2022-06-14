@@ -1,4 +1,4 @@
-[
+const facts = [
 	`Quokkas can survive a long time without food and water`,
 	`Quokkas are peceful with each other`,
 	`They look cute, but they're pretty annoying.\nQuokkas are known to wander inter restaurants and shops and have to be shooed away!`,
@@ -18,7 +18,7 @@
 	`Quokkas are a vulnerable species`,
 	`Yes, Quokkas do smile, but we don't know if they're happy.`,
 	`The correct way to pronounce Quokkas according to the Cambridge Dictionary is “kwok-uh`,
- 	`Quokkas climb trees mainly to get food.`,
+	`Quokkas climb trees mainly to get food.`,
 	`Quokkas have the ability to swim, but you won't find them doing the butterfly stroke very often.`,
 	'Quokkas Occupy Only a Small Portion of Australia.',
 	'Quokkas Eat Their Food Twice.',
@@ -30,3 +30,15 @@
 	`Watching Quokka has been proven to reduce stress among viewers of footage of the little creature`,
 	`Quokkas live in trees, shrubs, swamps and other areas with dense vegetation. They don't like the exposure of wide and open spaces.`
 ]
+
+const randomFacts = (array) => {
+	const length = array.length
+	const number = Math.floor((Math.random() * length))
+
+	return array[number]
+}
+
+module.exports = {
+	facts,
+	randomFacts
+}
