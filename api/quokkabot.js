@@ -1,12 +1,12 @@
 const message = (text) => {
 	let results = {},
-	photo = Math.floor(Math.random() * 12)
+		photo = Math.floor(Math.random() * 12)
 
-	if(RegExp(/error|issue|wrong/, 'i').test(text)) {
+	if (RegExp(/error|issue|wrong/, 'i').test(text)) {
 		results.body = `Thanks for reporting your issue, here's a picture of a quokka`
 		results.error = true
 	}
-	else if(RegExp('quokka', 'i').test(text)) {
+	else if (RegExp('quokka', 'i').test(text)) {
 		results.body = 'This is a quokka'
 	}
 	else {
@@ -15,20 +15,20 @@ const message = (text) => {
 		\nNot sure if you've seen a quokka? Send me a picture and I'll tell you if there's a quokka in it`
 	}
 
-	results.media = `https://amyskapers.dev/img/quokkas/quokka_(${photo}).jpg` 
+	results.media = `https://quokkas.amyskapers.dev/img/quokkas/quokka_(0).jpg`
 
 	return results
 }
 
 const email = (text) => {
 	let results = {},
-	photo = Math.floor(Math.random() * 12)
+		photo = Math.floor(Math.random() * 12)
 
-	if(RegExp(/error|issue|wrong/, 'i').test(text)) {
+	if (RegExp(/error|issue|wrong/, 'i').test(text)) {
 		results.body = `<p>Thanks for reporting your issue, here's a picture of a quokka</p>`
 		results.error = true
 	}
-	else if(RegExp('quokka', 'i').test(text)) {
+	else if (RegExp('quokka', 'i').test(text)) {
 		results.body = '<p>This is a quokka</p>'
 	}
 	else {
@@ -37,7 +37,7 @@ const email = (text) => {
 		<p>Not sure if you've seen a quokka? Send me a picture and I'll tell you if there's a quokka in it</p>`
 	}
 
-	results.body = `${results.body}<p><img src="https://amyskapers.dev/img/quokkas/quokka_(${photo}).jpg"/></p>`
+	results.body = `${results.body}<p><img src="https://quokkas.amyskapers.dev/img/quokkas/quokka_(0).jpg"/></p>`
 
 	return results
 }
