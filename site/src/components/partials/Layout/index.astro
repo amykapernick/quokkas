@@ -1,7 +1,6 @@
 ---
 import Header from '@partials/Header/index.astro'
 import Footer from '@partials/Footer/index.astro'
-import DevStyles from '@partials/DevStyles/index.astro'
 import siteData from '@data/site'
 
 import '@styles/global.scss'
@@ -12,6 +11,8 @@ const content = {
 }
 
 const { title, description, url, featured, slug = '/' } = content
+
+const className = process?.env?.NODE_ENV === 'development' ? 'development' : ''
 ---
 
 <style lang="scss">
@@ -19,6 +20,62 @@ const { title, description, url, featured, slug = '/' } = content
 		width: 90vw;
 		max-width: 1200px;
 		margin: 0 auto;
+	}
+
+	:global(.development)::before {
+		content: 'Mobile';
+		position: fixed;
+		z-index: 1000;
+		top: 0;
+		left: calc(50vw - 3em);
+		padding: 10px 20px;
+		border-radius: 0 0 20px 20px;
+		background: #000000;
+		color: #ffffff;
+		width: 6em;
+		text-align: center;
+	}
+
+	@media(min-width: 30em) {
+		:global(.development)::before {
+			content: '30em';
+		}
+	}
+
+	@media(min-width: 40em) {
+		:global(.development)::before {
+			content: '40em';
+		}
+	}
+
+	@media(min-width: 50em) {
+		:global(.development)::before {
+			content: '50em';
+		}
+	}
+
+	@media(min-width: 60em) {
+		:global(.development)::before {
+			content: '60em';
+		}
+	}
+
+	@media(min-width: 70em) {
+		:global(.development)::before {
+			content: '70em';
+		}
+	}
+
+	@media(min-width: 80em) {
+		:global(.development)::before {
+			content: '80em';
+		}
+	}
+
+	@media(min-width: 90em) {
+		:global(.development)::before {
+			content: '90em';
+		}
 	}
 </style>
 
@@ -47,9 +104,7 @@ const { title, description, url, featured, slug = '/' } = content
 	<slot name="head" />
 </head>
 
-<body>
-	{process?.env?.NODE_ENV === 'development' &&
-	<DevStyles />}
+<body class={className}>
 	<Header />
 	<main>
 		<slot />
