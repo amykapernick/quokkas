@@ -5,24 +5,16 @@
   "main": "index.js",
   "scripts": {
     "start": "func start",
-    "test": "echo \"No tests yet...\""
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/amykapernick/quokkas.git"
-  },
-  "author": "Amy Kapernick",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/amykapernick/quokkas/issues"
+    "test": "echo \"No tests yet...\"",
+    "dev": "doppler run -- npm start"
   },
   "dependencies": {
     "@azure/cognitiveservices-customvision-prediction": "^5.1.2",
-    "@azure/ms-rest-js": "^2.0.8",
-    "@sendgrid/mail": "^7.2.6",
-    "dotenv": "^8.2.0",
+    "@azure/ms-rest-js": "^2.6.1",
+    "@sendgrid/mail": "^7.7.0",
+    "dotenv": "^16.0.1",
     "file-system": "^2.2.2",
-    "querystring": "^0.2.0",
-    "twilio": "^3.49.4"
+    "querystring": "^0.2.1",
+    "twilio": "^3.77.2"
   }
 }
