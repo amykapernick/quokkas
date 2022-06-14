@@ -9,7 +9,7 @@
 		"dev": "doppler run -- npm start"
 	},
 	"engines": {
-		"node": ">=16.0.0"
+		"node": "16.x"
 	},
 	"dependencies": {
 		"@azure/cognitiveservices-customvision-prediction": "^5.1.2",

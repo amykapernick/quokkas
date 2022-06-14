@@ -15,7 +15,7 @@
 		"url": "git+https://github.com/amykapernick/quokkas.git"
 	},
 	"engines": {
-		"node": ">=16.0.0"
+		"node": "16.x"
 	},
 	"author": "Amy Kapernick <amy@kapers.dev> (https://amyskapers.dev)",
 	"license": "MIT",
