@@ -5,6 +5,7 @@ import react from '@astrojs/react';
 
 // https://astro.build/config
 export default defineConfig({
+	outDir: `../_site`,
 	site: `https://quokkas.amyskapers.dev`,
 	vite: {
 		ssr: {
@@ -26,7 +27,7 @@ export default defineConfig({
 	},
 	markdown: {
 		render: [
-			`@astrojs/markdown-remark`, 
+			`@astrojs/markdown-remark`,
 			{
 				theme: `a11y_dark`,
 				syntaxHighlight: `prism`,
