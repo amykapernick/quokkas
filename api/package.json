@@ -1,20 +1,23 @@
 {
-  "name": "quokka_or_not",
-  "version": "1.0.0",
-  "description": "Is this a quokka or not?",
-  "main": "index.js",
-  "scripts": {
-    "start": "func start",
-    "test": "echo \"No tests yet...\"",
-    "dev": "doppler run -- npm start"
-  },
-  "dependencies": {
-    "@azure/cognitiveservices-customvision-prediction": "^5.1.2",
-    "@azure/ms-rest-js": "^2.6.1",
-    "@sendgrid/mail": "^7.7.0",
-    "dotenv": "^16.0.1",
-    "file-system": "^2.2.2",
-    "querystring": "^0.2.1",
-    "twilio": "^3.77.2"
-  }
+	"name": "quokka_or_not",
+	"version": "1.0.0",
+	"description": "Is this a quokka or not?",
+	"main": "index.js",
+	"scripts": {
+		"start": "func start",
+		"test": "echo \"No tests yet...\"",
+		"dev": "doppler run -- npm start"
+	},
+	"engines": {
+		"node": ">=16.0.0"
+	},
+	"dependencies": {
+		"@azure/cognitiveservices-customvision-prediction": "^5.1.2",
+		"@azure/ms-rest-js": "^2.6.1",
+		"@sendgrid/mail": "^7.7.0",
+		"dotenv": "^16.0.1",
+		"file-system": "^2.2.2",
+		"querystring": "^0.2.1",
+		"twilio": "^3.77.2"
+	}
 }
