@@ -44,7 +44,6 @@ module.exports = async function (context, req) {
 
     let body = {}
     let image
-    let reply = {}
 
     multipart.Parse(bodyBuffer, boundary).forEach(o => {
         if (o.name) {
