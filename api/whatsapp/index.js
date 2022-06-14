@@ -1,36 +1,41 @@
 require('dotenv').config()
 
-const quokkaTest = require('../quokka-test'),
-    customVision = quokkaTest.customVision,
-    quokkaBot = require('../quokkabot')
+const quokkaTest = require('../quokka-test')
+const customVision = quokkaTest.customVision
+const { message: quokkaBot } = require('../quokkabot')
+const { quokkas, randomImage } = require('./_data/photos')
+
+
 
 const whatsappReply = (outcome) => {
+    const photo = randomImage(quokkas)
+
     let message,
-        photo = Math.floor(Math.random() * 12),
         quokka = `${(outcome[1] * 100).toFixed(2)}%`,
         notQuokka = `${(outcome[0] * 100).toFixed(2)}%`
 
     if (outcome[0] > outcome[1]) {
-        message = `Sorry, doesn't look like that's a quokka 😢
-        \nQuokka: ${quokka}, Not Quokka: ${notQuokka}
-        \nThat's pretty sad though, so here's a quokka`
+        message = `Sorry, doesn't look like that's a quokka 😢\nQuokka: ${quokka}, Not Quokka: ${notQuokka}\nThat's pretty sad though, so here's a quokka`
     } else {
-        message = `Yep, that looks like a quokka!
-        \nQuokka: ${quokka}, Not Quokka: ${notQuokka}`
+        message = `Yep, that looks like a quokka!\nQuokka: ${quokka}, Not Quokka: ${notQuokka}`
     }
 
-    return { message: message, photo: photo }
+    if (photo?.message) {
+        message = `${message} (${photo.message})`
+    }
+
+    return { message: message, photo: photo?.slug }
 }
 
 
 module.exports = async function (context) {
-    const qs = require('querystring'),
-        MessagingResponse = require('twilio').twiml.MessagingResponse,
-        twiml = new MessagingResponse(),
-        message = twiml.message(),
-        body = qs.parse(context.req.body),
-        text = body.Body,
-        image = body.NumMedia && body.MediaUrl0
+    const qs = require('querystring')
+    const MessagingResponse = require('twilio').twiml.MessagingResponse
+    const twiml = new MessagingResponse()
+    const message = twiml.message()
+    const body = qs.parse(context.req.body)
+    const text = body.Body
+    const image = body.NumMedia && body.MediaUrl0
 
     if (image) {
         const results = await customVision(image),
@@ -39,11 +44,11 @@ module.exports = async function (context) {
         message.body(reply.message)
 
         if (reply.photo) {
-            message.media(`https://quokkas.amyskapers.dev/img/quokkas/quokka_(0).jpg`)
+            message.media(`https://quokkas.amyskapers.dev/img/quokkas/${photo}`)
         }
     }
     else {
-        const results = quokkaBot.message(text)
+        const results = quokkaBot(text)
 
         message.body(results.body)
         message.media(results.media)

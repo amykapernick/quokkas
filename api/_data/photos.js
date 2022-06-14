@@ -142,8 +142,15 @@ const notQuokkas = [
 	}
 ]
 
+const randomImage = (array) => {
+	const length = array.length
+	const number = Math.floor((Math.random() * length))
+
+	return array[number]
+}
 
 module.exports = {
 	quokkas,
-	notQuokkas
+	notQuokkas,
+	randomImage
 }

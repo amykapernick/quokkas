@@ -27,9 +27,7 @@ const message = (text) => {
 		}
 	}
 	else {
-		results.body = `Welcome to Quokkabot! I can do a bunch of different things that have to do with quokkas.
-		\nNeed a picture of a quokka? Just ask me
-		\nNot sure if you've seen a quokka? Send me a picture and I'll tell you if there's a quokka in it`
+		results.body = `Welcome to Quokkabot! I can do a bunch of different things that have to do with quokkas.\nNeed a picture of a quokka? Just ask me\nNot sure if you've seen a quokka? Send me a picture and I'll tell you if there's a quokka in it`
 	}
 
 	results.media = `https://quokkas.amyskapers.dev/img/quokkas/${image.slug}`
@@ -38,23 +36,29 @@ const message = (text) => {
 }
 
 const email = (text) => {
-	let results = {},
-		photo = Math.floor(Math.random() * 12)
+	const image = randomImage(quokkas)
+	let results = {}
 
 	if (RegExp(/error|issue|wrong/, 'i').test(text)) {
 		results.body = `<p>Thanks for reporting your issue, here's a picture of a quokka</p>`
 		results.error = true
+
+		if (image?.message) {
+			results.body = `${results.body} <p>(${image.message})</p>`
+		}
 	}
 	else if (RegExp('quokka', 'i').test(text)) {
 		results.body = '<p>This is a quokka</p>'
+
+		if (image?.message) {
+			results.body = `<p>${image.message}</p>`
+		}
 	}
 	else {
-		results.body = `<p>Welcome to Quokkabot! I can do a bunch of different things that have to do with quokkas.</p>
-		<p>Need a picture of a quokka? Just ask me</p>
-		<p>Not sure if you've seen a quokka? Send me a picture and I'll tell you if there's a quokka in it</p>`
+		results.body = `<p>Welcome to Quokkabot! I can do a bunch of different things that have to do with quokkas.</p><p>Need a picture of a quokka? Just ask me</p><p>Not sure if you've seen a quokka? Send me a picture and I'll tell you if there's a quokka in it</p>`
 	}
 
-	results.body = `${results.body}<p><img src="https://quokkas.amyskapers.dev/img/quokkas/quokka_(0).jpg"/></p>`
+	results.body = `${results.body}<p><img src="https://quokkas.amyskapers.dev/img/quokkas/${image.slug}"/></p>`
 
 	return results
 }
