@@ -1,5 +1,5 @@
-const { quokkas, randomImage } = require('./_data/photos')
-const { facts, randomFacts } = require('./_data/facts')
+const { quokkas, randomImage } = require('../_data/photos')
+const { facts, randomFacts } = require('../_data/facts')
 
 const message = (text) => {
 	const image = randomImage(quokkas)

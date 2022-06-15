@@ -2,9 +2,9 @@ require('dotenv').config()
 
 const sgMail = require('@sendgrid/mail')
 const twilio = require('twilio')
-const customVision = require('../quokka-test').customVisionBinary
+const { customVisionBinary: customVision } = require('../utils/quokkaTest')
 const multipart = require('../parse-multipart/multipart')
-const { email: quokkaBot } = require('../quokkabot')
+const { email: quokkaBot } = require('../utils/quokkabot')
 const { quokkas, randomImage } = require('../_data/photos')
 
 const emailReply = (outcome) => {

@@ -1,8 +1,8 @@
 require('dotenv').config()
 
 const twilio = require('twilio')
-const { customVision } = require('../quokka-test')
-const { message: quokkaBot } = require('../quokkabot')
+const { customVision } = require('../utils/quokkaTest')
+const { message: quokkaBot } = require('../utils/quokkabot')
 const { quokkas, randomImage } = require('../_data/photos')
 
 const whatsappReply = (outcome) => {
@@ -42,6 +42,8 @@ module.exports = async function (context) {
     const body = qs.parse(context.req.body)
     const text = body.Body
     const image = body.NumMedia && body.MediaUrl0
+
+    console.log({ customVision })
 
     if (image) {
         const results = await customVision(image)
