@@ -1,8 +1,7 @@
 require('dotenv').config()
 
 const twilio = require('twilio')
-const quokkaTest = require('../quokka-test')
-const customVision = quokkaTest.customVision
+const { customVision } = require('../quokka-test')
 const { message: quokkaBot } = require('../quokkabot')
 const { quokkas, randomImage } = require('../_data/photos')
 

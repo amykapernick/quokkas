@@ -33,4 +33,6 @@ const quokkaTest = (results) => {
 }
 
 
-module.exports = customVision
+module.exports = {
+	customVision
+}
