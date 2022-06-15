@@ -9,10 +9,10 @@ const whatsappReply = (outcome) => {
     const photo = randomImage(quokkas)
 
     let message,
-        quokka = `${(outcome[1] * 100).toFixed(2)}%`,
-        notQuokka = `${(outcome[0] * 100).toFixed(2)}%`
+        quokka = `${(outcome.quokka * 100).toFixed(2)}%`,
+        notQuokka = `${(outcome.negative * 100).toFixed(2)}%`
 
-    if (outcome[0] > outcome[1]) {
+    if (outcome.negative > outcome.quokka) {
         message = `Sorry, doesn't look like that's a quokka 😢\nQuokka: ${quokka}, Not Quokka: ${notQuokka}\nThat's pretty sad though, so here's a quokka`
     } else {
         message = `Yep, that looks like a quokka!\nQuokka: ${quokka}, Not Quokka: ${notQuokka}`
@@ -43,16 +43,23 @@ module.exports = async function (context) {
     const text = body.Body
     const image = body.NumMedia && body.MediaUrl0
 
-    console.log({ customVision })
-
     if (image) {
         const results = await customVision(image)
         const reply = whatsappReply(results)
 
+        console.log({ results, reply })
+
         message.body(reply.message)
 
-        if (reply.photo) {
-            message.media(`https://quokkas.amyskapers.dev/img/quokkas/${photo}`)
+        if (reply?.photo) {
+            const photoUrl = `https://quokkas.amyskapers.dev/img/quokkas/${reply.photo}`
+            message.media(photoUrl)
+
+            service.documents('image').update({
+                data: {
+                    image: photoUrl
+                }
+            }).catch(console.error)
         }
 
         service.syncLists('pastResults').syncListItems.create({

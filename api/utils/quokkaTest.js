@@ -19,15 +19,17 @@ const customVision = async (image) => {
 }
 
 const quokkaTest = (results) => {
-	let outcome = []
+	let outcome = {}
 
 	results.predictions.forEach(tag => {
 		if (tag.tagName == 'Negative') {
-			outcome[0] = tag.probability
+			outcome.negative = tag.probability
 		} else if (tag.tagName == 'Quokka') {
-			outcome[1] = tag.probability
+			outcome.quokka = tag.probability
 		}
 	})
+
+	console.log({ results, outcome })
 
 	return outcome
 }

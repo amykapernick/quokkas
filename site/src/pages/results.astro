@@ -7,63 +7,6 @@ const meta = {
 	title: 'Quokkabot Results'
 }
 
-// const token = await fetch('https://corn-oyster-5571.twil.io/sync-token')
-// 	.then(response => response.json())
-// 	.then(res => res?.token)
-// // .then(data => {
-// 	const client = new Twilio.Sync.Client(data.token)
-
-// 	client.document('image').then(doc => {
-// 		document.querySelector('#last-sent img').src = doc.value.image
-
-// 		doc.on('updated', e => {
-// 			document.querySelector('#last-sent img').src = doc.value.image
-// 		})
-// 	})
-
-// 	client.list('pastResults').then(list => {
-// 		list.on('itemAdded', e => {
-// 			quokkaResults({ ...e.item.data.value })
-// 		})
-// 		return list.getItems({ pageSize: 5, order: 'desc' })
-// 	}).then(list => {
-// 		list.items.reverse().forEach((img, index) => {
-
-// 			if (!img.data.value.results) {
-// 				return
-// 			}
-
-// 			quokkaResults({ ...img.data.value })
-// 		})
-// 	})
-// // });
-
-// const client = new SyncClient(token)
-
-// client.document('image').then(doc => {
-// 	document.querySelector('#last-sent img').src = doc.value.image
-
-// 	doc.on('updated', e => {
-// 		document.querySelector('#last-sent img').src = doc.value.image
-// 	})
-// })
-
-// client.list('pastResults').then(list => {
-// 	list.on('itemAdded', e => {
-// 		quokkaResults({ ...e.item.data.value })
-// 	})
-// 	return list.getItems({ pageSize: 5, order: 'desc' })
-// }).then(list => {
-// 	list.items.reverse().forEach((img, index) => {
-
-// 		if (!img.data.value.results) {
-// 			return
-// 		}
-
-// 		quokkaResults({ ...img.data.value })
-// 	})
-// })
-
 ---
 
 <Layout meta={meta}>
@@ -78,110 +21,56 @@ const meta = {
 	<h3>Previous Quokka Classifications</h3>
 	<ul class="results"></ul>
 
-	<script type="text/javascript" src="//media.twiliocdn.com/sdk/js/sync/v3.0/twilio-sync.min.js"></script>
+	<script type="text/javascript" src="https://media.twiliocdn.com/sdk/js/sync/v3.1/twilio-sync.min.js"></script>
 	<script>
+		const quokkaResults = ({ image, results }) => {
+			const list = document.querySelector(`ul.results`);
+			const quokka = results.quokka > results.negative;
+			const caption = quokka ? `Quokka` : `Not Quokka`;
+			const percentage = quokka ? results.quokka : results.negative;
+			const quokkaImage = new Image();
+			const html = `<li><figure><img src="${image}" alt="" /><figcaption>${caption}<small>${(percentage * 100).toFixed(2)}%</small></figcaption></figure></li>`
+
+			quokkaImage.src = image
+
+			quokkaImage.onload = () => {
+				list.insertAdjacentHTML(`afterbegin`, html)
+
+				if (list.querySelectorAll(`li`).length > 5) {
+					list.querySelector(`li:last-child`).remove()
+				}
+			}
+		}
+
 		fetch('https://corn-oyster-5571.twil.io/sync-token')
 			.then(response => response.json())
 			.then(res => {
 				const token = res?.token
 				const client = new Twilio.Sync.Client(token);
-				const quokkaResults = ({ image, results }) => {
-					const list = document.querySelector(`ul.results`);
-					const quokka = results.quokka > results.negative;
-					const caption = quokka ? `Quokka` : `Not Quokka`;
-					const percentage = quokka ? results.quokka : results.negative;
-					const quokkaImage = new Image();
-					const html = `<li><figure><img src="${image}" alt="" /><figcaption>${caption}<small>${(percentage * 100).toFixed(2)}%</small></figcaption></figure></li>`
-
-					quokkaImage.src = image
-
-					quokkaImage.onload = () => {
-						list.insertAdjacentHTML(`afterbegin`, html)
-
-						if (list.querySelectorAll(`li`).length > 5) {
-							list.querySelector(`li:last-child`).remove()
-						}
-					}
-				}
 
 				client.document('image').then(doc => {
-					document.querySelector('#last-sent img').src = doc.value.image
+					document.querySelector('#last-sent img').src = doc.data.image
 
 					doc.on('updated', e => {
-						document.querySelector('#last-sent img').src = doc.value.image
+						document.querySelector('#last-sent img').src = doc.data.image
 					})
 				})
 
 				client.list('pastResults').then(list => {
 					list.on('itemAdded', e => {
-						quokkaResults({ ...e.item.data.value })
+						quokkaResults({ ...e.item.data })
 					})
 					return list.getItems({ pageSize: 5, order: 'desc' })
 				}).then(list => {
 					list.items.reverse().forEach((img, index) => {
 
-						if (!img.data.value.results) {
+						if (!img.data.results) {
 							return
 						}
 
-						quokkaResults({ ...img.data.value })
+						quokkaResults({ ...img.data })
 					})
 				})
 			})
 	</script>
 </Layout>
-
-
-
-<!-- <script src="https://media.twiliocdn.com/sdk/js/sync/releases/3.0.1/twilio-sync.min.js"></script>
-<script>
-	const quokkaResults = ({ image, results }) => {
-		const list = document.querySelector(`ul.results`);
-		const quokka = results.quokka > results.negative;
-		const caption = quokka ? `Quokka` : `Not Quokka`;
-		const percentage = quokka ? results.quokka : results.negative;
-		const quokkaImage = new Image();
-		const html = `<li><figure><img src="${image}" alt="" /><figcaption>${caption}<small>${(percentage * 100).toFixed(2)}%</small></figcaption></figure></li>`
-
-		quokkaImage.src = image
-
-		quokkaImage.onload = () => {
-			list.insertAdjacentHTML(`afterbegin`, html)
-
-			if (list.querySelectorAll(`li`).length > 5) {
-				list.querySelector(`li:last-child`).remove()
-			}
-		}
-	}
-
-	await fetch('https://corn-oyster-5571.twil.io/sync-token')
-		.then(response => response.json())
-		.then(data => {
-			console.log({ data })
-			const client = new Twilio.Sync.Client(data.token)
-
-			client.document('image').then(doc => {
-				document.querySelector('#last-sent img').src = doc.value.image
-
-				doc.on('updated', e => {
-					document.querySelector('#last-sent img').src = doc.value.image
-				})
-			})
-
-			client.list('pastResults').then(list => {
-				list.on('itemAdded', e => {
-					quokkaResults({ ...e.item.data.value })
-				})
-				return list.getItems({ pageSize: 5, order: 'desc' })
-			}).then(list => {
-				list.items.reverse().forEach((img, index) => {
-
-					if (!img.data.value.results) {
-						return
-					}
-
-					quokkaResults({ ...img.data.value })
-				})
-			})
-		});
-</script> -->
