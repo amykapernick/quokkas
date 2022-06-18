@@ -42,6 +42,8 @@ module.exports = async function (context, req) {
 
     sgMail.setApiKey(process.env.SENDGRID_API_KEY)
 
+    console.log({ bodyBuffer, boundary })
+
     let body = {}
     let image
 
@@ -58,6 +60,8 @@ module.exports = async function (context, req) {
         }
     })
 
+    console.log({ body, image })
+
     let msg = {
         to: body.from,
         from: {
@@ -66,6 +70,8 @@ module.exports = async function (context, req) {
         },
         subject: `Re: ${body.subject}`
     }
+
+    console.log({ msg })
 
     if (image) {
         const results = await customVision(image)
@@ -80,9 +86,10 @@ module.exports = async function (context, req) {
         }).catch(console.error)
     }
     else {
-        const results = quokkabot(body.text)
+        const results = quokkaBot(body.text)
 
-        msg.html = `${results.body}<hr/>${body.text}`
+        msg.html = `${results.body}<hr/><p><strong>From:</strong> ${body.from}<br/><strong>To:</strong> ${body.to}<br/><strong>Subject:</strong> ${body.subject}
+        </p><br/><br/>${body?.html || `<p>${body.text}</p>`}`
 
         if (results.error) {
             msg.bcc = {

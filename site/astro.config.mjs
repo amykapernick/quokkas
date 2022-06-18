@@ -28,13 +28,12 @@ export default defineConfig({
 	markdown: {
 		render: [
 			`@astrojs/markdown-remark`,
-			{
-				theme: `a11y_dark`,
-				syntaxHighlight: `prism`,
-				rehypePlugins: [],
-				wrap: true
-			}
 		],
+		shikiConfig: {
+			theme: `monokai`,
+			langs: [],
+			wrap: true,
+		},
 		rehypePlugins: [
 			`rehype-figure`
 		],
