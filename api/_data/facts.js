@@ -35,7 +35,7 @@ const randomFacts = (array) => {
 	const length = array.length
 	const number = Math.floor((Math.random() * length))
 
-	return array[number]
+	return `Fun Quokka Fact #${Math.floor((Math.random() * 1000))}: ${array[number]}`
 }
 
 module.exports = {

@@ -11,9 +11,17 @@ const iteration = process.env.ITERATION
 const credentials = new ApiKeyCredentials({ inHeader: { "Prediction-key": key } })
 const predictor = new PredictionAPIClient(credentials, endpoint)
 
-const customVision = async (image) => {
-	const results = await predictor.classifyImageUrl(projectId, iteration, { url: image }),
-		outcome = quokkaTest(results)
+const customVision = async ({image, version}) => {
+	let results
+
+	if(version == 'binary') {
+		results = await predictor.classifyImage(projectId, iteration, image)
+	}
+	else {
+		results = await predictor.classifyImageUrl(projectId, iteration, { url: image })
+	}
+
+	const outcome = quokkaTest(results)
 
 	return outcome
 }
@@ -35,6 +43,4 @@ const quokkaTest = (results) => {
 }
 
 
-module.exports = {
-	customVision
-}
+module.exports = customVision

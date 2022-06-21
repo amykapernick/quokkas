@@ -8,7 +8,8 @@
 		"build": "astro build --root ./site",
 		"preview": "astro preview --root ./site",
 		"start": "npm run dev",
-		"api": "cd api && npm run dev"
+		"api": "cd api && npm run dev",
+		"api:dev": "ngrok http --region=au --hostname=quokkas.au.ngrok.io 7071"
 	},
 	"repository": {
 		"type": "git",
