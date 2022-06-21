@@ -7,6 +7,8 @@ const content = {
 	...Astro?.props?.content,
 	slug: Astro?.canonicalURL?.pathname
 }
+
+// console.log({ content })
 ---
 
 <Layout content={content}>

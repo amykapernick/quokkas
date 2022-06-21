@@ -7,7 +7,7 @@ const client = twilio(
 	}
 )
 const service = client.sync.services(process.env.TWILIO_SYNC_SERVICE_SID)
-
+ 
 const updateResults = ({image, results}) => {
 	service.syncLists('pastResults').syncListItems.create({
 		data: {
@@ -15,9 +15,12 @@ const updateResults = ({image, results}) => {
 			results
 		}
 	}).catch(console.error)
+	
 }
 
 const updateImage = ({image}) => {
+	console.log({image, type: typeof image})
+
 	service.documents('image').update({
 		data: {
 			image

@@ -1,33 +1,23 @@
 require('dotenv').config()
 
 const sgMail = require('@sendgrid/mail')
+const parseMultipartFormData = require('@anzp/azure-function-multipart').default
 const customVision = require('../utils/quokkaTest')
-const multipart = require('../parse-multipart/multipart')
 const quokkaBot = require('../utils/quokkabot')
 const { updateResults, updateImage } = require('../utils/sync')
+const quokkaResults = require('../utils/quokkaResults')
 
 
 module.exports = async function (context, req) {
-    const bodyBuffer = Buffer.from(req.body)
-    const boundary = multipart.getBoundary(req.headers['content-type'])
+    const { fields, files } = await parseMultipartFormData(req)
+    const body = {}
+    const image = (files && files.length) && files[0].bufferFile
+
+    fields.forEach(field => {
+        body[field.name] = field.value
+    })
 
     sgMail.setApiKey(process.env.SENDGRID_API_KEY)
-
-    let body = {}
-    let image
-
-    multipart.Parse(bodyBuffer, boundary).forEach(o => {
-        if (o.name) {
-            body[o.name] = o.data
-        }
-        else if (o.filename) {
-            body.filename = o.data
-        }
-
-        if (o.filename) {
-            image = o.data
-        }
-    })
 
     let msg = {
         to: body.from,
@@ -48,6 +38,8 @@ module.exports = async function (context, req) {
             version: 'html'
         })
 
+        msg.html = reply?.message
+
         if (reply?.photo) {
             updateImage({
                 image: photoUrl
@@ -65,6 +57,12 @@ module.exports = async function (context, req) {
             version: 'html'
         })
 
+        updateImage({
+            image: results.media
+        })
+
+        msg.html = results?.body
+
         if (results.error) {
             msg.bcc = {
                 name: 'Quokkabot',
@@ -76,6 +74,4 @@ module.exports = async function (context, req) {
     msg.html = `${msg.html}${original}`
 
     await sgMail.send(msg)
-
-
 };

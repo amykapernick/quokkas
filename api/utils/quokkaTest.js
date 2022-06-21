@@ -37,8 +37,6 @@ const quokkaTest = (results) => {
 		}
 	})
 
-	console.log({ results, outcome })
-
 	return outcome
 }
 

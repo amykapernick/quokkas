@@ -19,7 +19,7 @@ const reply = ({
 	const photo = randomImage(quokkas)
 	const quokka = `${(results.quokka * 100).toFixed(2)}%`
 	const notQuokka = `${(results.negative * 100).toFixed(2)}%`
-	const outcome = outcome.negative > outcome.quokka ? 'negative' : 'positive'
+	const outcome = results.negative > results.quokka ? 'negative' : 'positive'
 
 	let message
 	let media

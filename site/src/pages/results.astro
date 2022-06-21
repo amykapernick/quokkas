@@ -9,7 +9,38 @@ const meta = {
 
 ---
 
-<Layout meta={meta}>
+<style lang="scss">
+	.results {
+		display: flex;
+		flex-wrap: wrap;
+		margin: -10px;
+		padding: 0;
+		list-style: none;
+		justify-content: center;
+
+		:global(li) {
+			flex: 1 1 250px;
+			margin: 10px;
+			max-width: 300px;
+		}
+
+		:global(figure) {
+			padding: 0;
+		}
+
+		:global(img) {
+			width: 300px;
+			height: 300px;
+			object-fit: cover;
+		}
+	}
+
+	figure {
+		padding: 0;
+	}
+</style>
+
+<Layout content={meta}>
 
 	<h1>Quokkabot Results</h1>
 
@@ -29,7 +60,7 @@ const meta = {
 			const caption = quokka ? `Quokka` : `Not Quokka`;
 			const percentage = quokka ? results.quokka : results.negative;
 			const quokkaImage = new Image();
-			const html = `<li><figure><img src="${image}" alt="" /><figcaption>${caption}<small>${(percentage * 100).toFixed(2)}%</small></figcaption></figure></li>`
+			const html = `<li><figure><img src="${image}" alt="" /><figcaption>${caption} - ${(percentage * 100).toFixed(2)}%</figcaption></figure></li>`
 
 			quokkaImage.src = image
 
