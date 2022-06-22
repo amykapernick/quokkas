@@ -28,7 +28,7 @@ module.exports = async function (context) {
             message.media(reply.photo)
 
             updateImage({
-                image
+                image: reply.photo
             })
         }
 
