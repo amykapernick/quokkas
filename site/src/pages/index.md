@@ -61,4 +61,4 @@ To use Quokkabot on WhatsApp, scan the QR code on your phone (with the WhatsApp 
 
 ### Email
 
-Send an email to [quokkas@amyskapers.dev](mailto:quokkas@amyskapers.dev).
+Send an email to [hi@quokkas.dev](mailto:hi@quokkas.dev).

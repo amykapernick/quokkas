@@ -28,7 +28,7 @@ module.exports = async function (context) {
             message.media(reply.photo)
 
             updateImage({
-                image: photoUrl
+                image
             })
         }
 
@@ -46,6 +46,8 @@ module.exports = async function (context) {
         message.body(reply.body)
         message.media(reply.media)
     }
+
+    console.log({message})
 
     context.done(null, {
         status: 200,
