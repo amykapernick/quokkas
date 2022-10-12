@@ -25,6 +25,28 @@ module.exports = async function (context) {
 
     if(image) {
         results = await predictor.classifyImageUrl(projectId, iteration, { url: image })
+
+        let outcome = {}
+
+        results.predictions.forEach(tag => {
+            if (tag.tagName == 'Negative') {
+                outcome.negative = tag.probability
+            } else if (tag.tagName == 'Quokka') {
+                outcome.quokka = tag.probability
+            }
+        })
+
+        const quokka = `${(outcome.quokka * 100).toFixed(2)}%`
+        const notQuokka = `${(outcome.negative * 100).toFixed(2)}%`
+
+        if(outcome.negative > outcome.quokka) {
+            message.body(`Sorry that doesn't look like a quokka\nQuokka: ${quokka}, Not Quokka: ${notQuokka}\nThat's pretty sad though, so here's a quokka`)
+
+            message.media(`https://quokkas.amyskapers.dev/img/quokkas/${randomImage(quokkas).slug}`)
+        }
+        else {
+            message.body(`Yep that looks like a quokka!\nQuokka: ${quokka}, Not Quokka: ${notQuokka}`)
+        }
     }
     else {
         if(RegExp('quokka', 'i').test(msgText)) {
@@ -36,8 +58,6 @@ module.exports = async function (context) {
             message.media(`https://quokkas.amyskapers.dev/img/not_quokkas/${randomImage(notQuokkas).slug}`)
         }
     }
-
-    context.log({results: JSON.stringify(results)})
 
     context.done(null, {
         status: 200,
