@@ -5,6 +5,7 @@ const { PredictionAPIClient } = require('@azure/cognitiveservices-customvision-p
 const { ApiKeyCredentials } = require('@azure/ms-rest-js')
 
 const { randomImage, quokkas, notQuokkas } = require('../_data/photos')
+const {randomFacts, facts} = require('../_data/facts')
 
 const key = process.env.API_KEY
 const endpoint = process.env.ENDPOINT
@@ -51,16 +52,19 @@ module.exports = async function (context) {
     else {
         if(RegExp(/error|issue|wrong/, 'i').test(msgText)) {
             message.body('Sorry about that, here is a quokka to cheer you up')
-            message.media(`https://quokkas.amyskapers.dev/img/quokkas/${randomImage(quokkas).slug}`)
+        }
+        else if (RegExp('fact', 'i').test(msgText)) {
+            message.body(randomFacts(facts))
         }
         else if(RegExp('quokka', 'i').test(msgText)) {
             message.body('This is a quokka')
-            message.media(`https://quokkas.amyskapers.dev/img/quokkas/${randomImage(quokkas).slug}`)
+            
         }
         else {
-            message.body('This is not a quokka')
-            message.media(`https://quokkas.amyskapers.dev/img/not_quokkas/${randomImage(notQuokkas).slug}`)
+            message.body(`Welcome to Quokkabot! I can do a bunch of different things that have to do with quokkas.\nNeed a picture of a quokka? Just ask me\nNot sure if you've seen a quokka? Send me a picture and I'll tell you if there's a quokka in it`)
         }
+
+        message.media(`https://quokkas.amyskapers.dev/img/quokkas/${randomImage(quokkas).slug}`)
     }
 
     context.done(null, {
