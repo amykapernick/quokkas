@@ -49,7 +49,11 @@ module.exports = async function (context) {
         }
     }
     else {
-        if(RegExp('quokka', 'i').test(msgText)) {
+        if(RegExp(/error|issue|wrong/, 'i').test(msgText)) {
+            message.body('Sorry about that, here is a quokka to cheer you up')
+            message.media(`https://quokkas.amyskapers.dev/img/quokkas/${randomImage(quokkas).slug}`)
+        }
+        else if(RegExp('quokka', 'i').test(msgText)) {
             message.body('This is a quokka')
             message.media(`https://quokkas.amyskapers.dev/img/quokkas/${randomImage(quokkas).slug}`)
         }
