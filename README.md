@@ -3,7 +3,7 @@
 ![GitHub contributors](https://img.shields.io/github/contributors/amykapernick/quokkas)
 ![GitHub](https://img.shields.io/github/license/amykapernick/quokkas)
 
-# Contributing
+## Contributing
 **New feature: Quokka facts**
 
 We'll be adding a new feature soon, with the bot sending Quokka facts as well. Add your facts to [`resources/data/facts.js`](resources/data/facts.js) via a pull request! 
@@ -11,11 +11,11 @@ We'll be adding a new feature soon, with the bot sending Quokka facts as well. A
 **Note**: we'll only be accepting one PR from each user, to keep Hacktoberfest fair
 
 
-# To Do
+## To Do
 * [x] Create WhatsApp bot that sends Quokka photos
 * [x] Connect Custom Vision to detect Quokkas in photos
 * [x] Create Sendgrid version
 * [x] Allow users to lodge error reports
 * [ ] Automate error reporting to re-train image classification model
-* [ ] Add Quokka facts option
+* [x] Add Quokka facts option
 * [ ] Add Twitter version
