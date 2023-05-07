@@ -19,6 +19,6 @@
 		"dotenv": "^16.0.1",
 		"file-system": "^2.2.2",
 		"querystring": "^0.2.1",
-		"twilio": "^3.77.2"
+		"twilio": "^4.11.0"
 	}
 }
