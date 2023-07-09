@@ -14,7 +14,7 @@
 	"dependencies": {
 		"@anzp/azure-function-multipart": "^3.0.0",
 		"@azure/cognitiveservices-customvision-prediction": "^5.1.2",
-		"@azure/ms-rest-js": "^2.6.1",
+		"@azure/ms-rest-js": "^2.7.0",
 		"@sendgrid/mail": "^7.7.0",
 		"dotenv": "^16.0.1",
 		"file-system": "^2.2.2",
